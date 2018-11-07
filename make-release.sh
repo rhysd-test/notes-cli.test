@@ -8,13 +8,13 @@ golint
 rm -rf release
 gox
 mkdir -p release
-mv notes.test_* release/
+mv notes-cli.test_* release/
 cd release
 for bin in *; do
     if [[ "$bin" == *windows* ]]; then
-        command="notes.test.exe"
+        command="notes-cli.test.exe"
     else
-        command="notes.test"
+        command="notes-cli.test"
     fi
     mv "$bin" "$command"
     zip "${bin}.zip" "$command"
